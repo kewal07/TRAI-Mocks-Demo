@@ -1,0 +1,15 @@
+.navbar-left{
+	display: none;
+}
+.glyphicon-chevron-left{
+	display: none;
+}
+#my-map{
+	height: 650px;
+}
+#mapbox-panel .chart-stage {
+    height: 675px !important;
+}
+#bar-example{
+	height: 250px;
+}
