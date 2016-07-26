@@ -11,6 +11,7 @@
 
   <!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> -->
     <script src="leaflet/leaflet-src.js"></script> 
+    <script type="text/javascript" src="constants.js"></script>
 </head>
 <body class="application">
 
@@ -49,23 +50,11 @@
             <div class="chart-wrapper">
               <div class="chart-title">
                 <div class="row">
-            <div class="col-md-8">
-            BTS Density per square km
+            <div class="col-md-7">
+            Call Drop Rates in %
             </div>
-            <div class="col-md-4">
-                <select class="select-month">
-                  <option>Current Month</option>
-                  <option>Last Month</option>
-                  <option>May, 2016</option>
-                  <option>April, 2016</option>
-                  <option>March, 2016</option>
-                </select>
+            <div class="col-md-5">
                 <select class="select-location">
-                  <option>India</option>
-                  <option>Delhi</option>
-                  <option>Punjab</option>
-                  <option>Karnataka</option>
-                  <option>Kerala</option>
                 </select>
               </div>
           </div>
@@ -74,9 +63,9 @@
                 <div id="container"></div>
            
               </div>
-              <div class="chart-notes">
+              <!-- <div class="chart-notes">
                 This is a sample text region to describe this chart.
-              </div>
+              </div> -->
             </div>
           </div>
           
@@ -116,24 +105,16 @@
             <div class="chart-wrapper">
             <div class="chart-title">
              <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-5">
                    Call Drop & Network Utilization
               
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-7">
                   <select class="select-month">
-                    <option>Current Month</option>
-                    <option>Last Month</option>
-                    <option>May, 2016</option>
-                    <option>April, 2016</option>
-                    <option>March, 2016</option>
+                    <option value="1">April, 2016</option>
+                    <option value="2">March, 2016</option>
                   </select>
                   <select class="select-location">
-                    <option>India</option>
-                    <option>Delhi</option>
-                    <option>Punjab</option>
-                    <option>Karnataka</option>
-                    <option>Kerala</option>
                   </select>
                 </div>
               </div>
@@ -147,7 +128,7 @@
                     Call Drop Rate
                   </div>
                   <div class="chart-stage" id="call-drop">
-                    <input type="text" value="3.5" class="dial" readonly data-fgColor="#FF6666">
+                    <input type="text" value="0.64" class="dial" readonly data-fgColor="#FF6666">
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -155,7 +136,7 @@
                     % Network Utilization on 2G Networks
                   </div>
                   <div class="chart-stage">
-                    <input type="text" value="77.4" class="dial2" readonly>
+                    <input type="text" value="59.74" class="dial2" readonly>
                   </div>
                 </div>
               </div>
@@ -166,45 +147,33 @@
           <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                Provider Breakdown
+                % N/W Utilization
                 <small class="pull-right">
                   <label class="pull-left" style="margin-right: 10px;">
-                    Provider Breakdown CallDrops:
-                    <select>
-                      <option selected>All </option>
-                      <option>Airtel</option>
-                      <option >BSNL</option>
-                      <option>Reliance</option>
+                    Providers:
+                    <select class="select-tsp">
                     </select>
                   </label>
                   <label>
                     Time:
-                    <select>
-                      <option>Overall</option>
-                      <option>Current Month</option>
-                      <option selected>Last Month</option>
-                      <option>May,2016</option>
-                      <option>April,2016</option>
+                    <select class="select-month">
+                      <option value="1">April, 2016</option>
+                      <option value="2">March, 2016</option>
                     </select>
                   </label>
                   <label>
                     Location:
-                    <select>
-                      <option selected>Overall</option>
-                      <option>J&K</option>
-                      <option>Punjab</option>
-                      <option>Haryana</option>
-                      <option>Karnataka</option>
-                    </select>
+                    <select class="select-location">
+                  </select>
                   </label>
                 </small>
               </div>
               <div class="chart-stage">
                 <div id="bar-example"></div>
               </div>
-              <div class="chart-notes">
+             <!--  <div class="chart-notes">
                 Notes go down here
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -225,36 +194,61 @@
                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>,Developed By <a href="#">Kewal</a>',
                   accessToken: 'pk.eyJ1Ijoia2V3YWwwNyIsImEiOiJjaXFsODZkMjAwMDBoZ3NqZnA1b2l1NXRnIn0.I7zATwJ7V0Ju8H6quwjG-g'
                 }).addTo(mymap);
-                var marker = L.marker([25.5937, 78.9629]).addTo(mymap);
-                var marker = L.marker([26.5937, 75.9629]).addTo(mymap);
-                var marker = L.marker([27.5937, 79.9629]).addTo(mymap);
-                var marker = L.marker([28.5937, 72.9629]).addTo(mymap);
-                var marker = L.marker([23.5937, 78.9629]).addTo(mymap);
-                var marker = L.marker([15.317, 75.9629]).addTo(mymap);
-                var marker = L.marker([10.8505, 76.2711]).addTo(mymap);
-                var marker = L.marker([11.1271, 78.6569]).addTo(mymap);
-                var marker = L.marker([17.3850, 78.4867]).addTo(mymap);
-                var marker = L.marker([22.5726, 88.3639]).addTo(mymap);
-                var marker = L.marker([25.0961, 85.3131]).addTo(mymap);
-                var marker = L.marker([23.1645, 92.9376]).addTo(mymap);
-                var marker = L.marker([19.0760, 72.8777]).addTo(mymap);
-                var marker = L.marker([20.9517, 85.0985]).addTo(mymap);
-                var marker = L.marker([22.2587, 71.1924]).addTo(mymap);
-                var marker = L.marker([21.2787, 81.8661]).addTo(mymap);
-                marker.bindPopup("<b>Call Drop: </b>0.3%<br/><b>Network Utilization: </b>70.3%").openPopup();
+                var marker1 = L.marker([15.9129, 79.7400]).addTo(mymap);
+                var marker2 = L.marker([26.2006, 92.9376]).addTo(mymap);
+                var marker3 = L.marker([25.0961, 85.3131]).addTo(mymap);
+                var marker4 = L.marker([28.7041, 77.1025]).addTo(mymap);
+                var marker5 = L.marker([22.2587, 71.1924]).addTo(mymap);
+                var marker6 = L.marker([29.0588, 76.0856]).addTo(mymap);
+                var marker7 = L.marker([31.1048, 77.1734]).addTo(mymap);
+                var marker8 = L.marker([15.3173, 75.7139]).addTo(mymap);
+                var marker9 = L.marker([10.8505, 76.2711]).addTo(mymap);
+                var marker10 = L.marker([22.9734, 78.6569]).addTo(mymap);
+                var marker11 = L.marker([18.5204, 73.8567]).addTo(mymap);
+                var marker12 = L.marker([25.4670, 91.3662]).addTo(mymap);
+                var marker13 = L.marker([20.9517, 85.0985]).addTo(mymap);
+                var marker14 = L.marker([31.1471, 75.3412]).addTo(mymap);
+                var marker15 = L.marker([27.0238, 74.2179]).addTo(mymap);
+                var marker16 = L.marker([11.1271, 78.6569]).addTo(mymap);
+                var marker17 = L.marker([26.8467, 80.9462]).addTo(mymap);
+                var marker18 = L.marker([22.9868, 87.8550]).addTo(mymap);
+                var marker19 = L.marker([19.0760, 72.8777]).addTo(mymap);
+                var marker20 = L.marker([13.0827, 80.2707]).addTo(mymap);
+                var marker21 = L.marker([22.5726, 88.3639]).addTo(mymap);
+                marker1.bindPopup("<b>Call Drop: </b>0.53%<br/><b>Network Utilization: </b>59.41%%").openPopup();
+                marker2.bindPopup("<b>Call Drop: </b>1.07%<br/><b>Network Utilization: </b>69.33").openPopup();
+                marker3.bindPopup("<b>Call Drop: </b>1.13%<br/><b>Network Utilization: </b>76.63%").openPopup();
+                marker4.bindPopup("<b>Call Drop: </b>0.75%<br/><b>Network Utilization: </b>56.14%").openPopup();
+                marker5.bindPopup("<b>Call Drop: </b>0.54%<br/><b>Network Utilization: </b>58.49%").openPopup();
+                marker6.bindPopup("<b>Call Drop: </b>0.37%<br/><b>Network Utilization: </b>55.12%").openPopup();
+                marker7.bindPopup("<b>Call Drop: </b>0.64%<br/><b>Network Utilization: </b>50.47%").openPopup();
+                marker8.bindPopup("<b>Call Drop: </b>0.51%<br/><b>Network Utilization: </b>53.84%").openPopup();
+                marker9.bindPopup("<b>Call Drop: </b>0.45%<br/><b>Network Utilization: </b>58.75%").openPopup();
+                marker10.bindPopup("<b>Call Drop: </b>0.57%<br/><b>Network Utilization: </b>78.06%").openPopup();
+                marker11.bindPopup("<b>Call Drop: </b>0.58%<br/><b>Network Utilization: </b>60.64%").openPopup();
+                marker12.bindPopup("<b>Call Drop: </b>1.23%<br/><b>Network Utilization: </b>83.29%").openPopup();
+                marker13.bindPopup("<b>Call Drop: </b>0.67%<br/><b>Network Utilization: </b>70.68%").openPopup();
+                marker14.bindPopup("<b>Call Drop: </b>0.46%<br/><b>Network Utilization: </b>54.32%").openPopup();
+                marker15.bindPopup("<b>Call Drop: </b>0.55%<br/><b>Network Utilization: </b>68.75%").openPopup();
+                marker16.bindPopup("<b>Call Drop: </b>0.63%<br/><b>Network Utilization: </b>26.41%").openPopup();
+                marker17.bindPopup("<b>Call Drop: </b>0.69%<br/><b>Network Utilization: </b>77.2%").openPopup();
+                marker18.bindPopup("<b>Call Drop: </b>0.85%<br/><b>Network Utilization: </b>77.91%").openPopup();
+                marker19.bindPopup("<b>Call Drop: </b>0.67%<br/><b>Network Utilization: </b>49.34%").openPopup();
+                marker20.bindPopup("<b>Call Drop: </b>0.61%<br/><b>Network Utilization: </b>0%").openPopup();
+                marker21.bindPopup("<b>Call Drop: </b>0.5%<br/><b>Network Utilization: </b>53.05%").openPopup();
                 var popup = L.popup();
                 function onMapClick(e) {
-                    popup
-                        .setLatLng(e.latlng)
-                        .setContent("<b>Call Drop: </b>0.3%<br/><b>Network Utilization: </b>70.3%")
-                        .openOn(mymap);
+                    // popup
+                    //     .setLatLng(e.latlng)
+                    //     .setContent("<b>Call Drop: </b>0.3%<br/><b>Network Utilization: </b>70.3%")
+                    //     .openOn(mymap);
                   }
                 mymap.on('click', onMapClick);
               </script>
           </div>
-          <div class="chart-notes">
+          <!-- <div class="chart-notes">
             Notes go down here
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -283,9 +277,89 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
   <link href="keen.mapbox.css" rel="stylesheet" />
-    <script type="text/javascript" src="jquery.knob.min.js"></script>
+  <script type="text/javascript" src="jquery.knob.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script>
+
+  // google.charts.load('current', {'packages':['bar']});
+  // google.charts.setOnLoadCallback(drawChart);
+  // function drawChart() {
+    // var data = google.visualization.arrayToDataTable([
+    //   ['ServiceProvider', 'CallDrop', 'NetworkUtilization'],
+    //   ['Aircel', 1.05, 67.19],
+    //   ['Airtel', 1.03, 70.74],
+    //   ['BSNL', 1.05, 37.68],
+    //   ['Idea', 0.59, 85.01],
+    //   ['MTNL', 3.47, 25.07],
+    //   ['MTS', 0.34, 25.07],
+    //   ['Quadrant', 0.71, 0.14],
+    //   ['Reliance', 0.13, 44.72],
+    //   ['TTSL', 0.48, 80.58],
+    //   ['Telenor', 0.71, 120.02],
+    //   ['Vodafone', 0.85, 79.82],
+    //   ['Videocon', 38.42, 34.37]
+    // ]);
+  //   // var data = google.visualization.arrayToDataTable([
+  //   //       ['Year', 'Sales', 'Expenses', 'Profit'],
+  //   //       ['2014', 1000, 400, 200],
+  //   //       ['2015', 1170, 460, 250],
+  //   //       ['2016', 660, 1120, 300],
+  //   //       ['2017', 1030, 540, 350]
+  //   //     ]);
+
+  //   var options = {
+  //     chart: {
+  //       // title: 'Company Performance',
+  //       // subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+  //     }
+  //   };
+  //   var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+  //   chart.draw(data, options);
+  // }
+ // google.charts.load('current', {'packages':['bar']});
+ //      google.charts.setOnLoadCallback(drawChart);
+ //      function drawChart() {
+ //    //       var data = google.visualization.arrayToDataTable([
+ //    //   ['ServiceProvider', 'CallDrop', 'NetworkUtilization'],
+ //    //   ['Aircel', 1.05, 67.19],
+ //    //   ['Airtel', 1.03, 70.74],
+ //    //   ['BSNL', 1.05, 37.68],
+ //    //   ['Idea', 0.59, 85.01],
+ //    //   ['MTNL', 3.47, 25.07],
+ //    //   ['MTS', 0.34, 25.07],
+ //    //   ['Quadrant', 0.71, 0.14],
+ //    //   ['Reliance', 0.13, 44.72],
+ //    //   ['TTSL', 0.48, 80.58],
+ //    //   ['Telenor', 0.71, 120.02],
+ //    //   ['Vodafone', 0.85, 79.82],
+ //    //   ['Videocon', 38.42, 34.37]
+ //    // ]);
+ //          var data = google.visualization.arrayToDataTable([
+ //          ['Year', 'Sales', 'Expenses', 'Profit'],
+ //          ['2014', 1000, 400, 200],
+ //          ['2015', 1170, 460, 250],
+ //          ['2016', 660, 1120, 300],
+ //          ['2017', 1030, 540, 350]
+ //        ]);
+ //          console.log(data);
+
+ //        var options = {
+ //          chart: {
+ //            title: 'Company Performance',
+ //            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+ //          }
+ //        };
+
+ //        var chart = new google.charts.Bar(document.getElementById('columnchart_material_12'));
+
+ //        chart.draw(data, options);
+ //        // chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
+ //      }
+
   $(function(){
     // $(window).resize(adjust);
     // function adjust(){
@@ -293,98 +367,313 @@
     //   $("#mapbox-panel .chart-stage").height(offset);
     // }
     // adjust();
+    for( l in loc ){
+      $(".select-location").append('<option value="'+l+'">'+loc[l]+"</option>");
+     }
+    for( l in tsp ){
+      $(".select-tsp").append('<option value="'+l+'">'+tsp[l]+"</option>");
+     }
     $(".dial").knob({
           'readonly':true,
           'width':100,
           'height':100
-        });
-        $(".dial2").knob({
-          'readonly':true,
-          'width':100,
-          'height':100
-        });
-        $(".select-month").change(function(){
-          var x = (Math.floor((Math.random() * 10) + 1));
-          var y = (Math.floor((Math.random() * 100) + 70));
-         $('.dial').val(x).trigger('change');
-         $('.dial2').val(y).trigger('change');
-        });
+    });
+    $(".dial2").knob({
+      'readonly':true,
+      'width':100,
+      'height':100
+    });
+    $(".select-location, .select-tsp, .select-month").change(function(){
+      selClass = $(this).attr("class");
+      console.log(selClass);
+      if(selClass === "select-location"){
+        lVal = $(this).val();
+        $(".select-location").val(lVal);
+        tVal = $(".select-tsp").val();
+        mVal = $(".select-month").val();
+      }else if(selClass === "select-tsp"){
+        tVal = $(this).val();
+        $(".select-tsp").val(tVal);
+        lVal = $(".select-location").val();
+        mVal = $(".select-month").val();
+      }else if(selClass === "select-month"){
+        lVal = $(".select-location").val();
+        tVal = $(".select-tsp").val();
+        mVal = $(this).val();
+        $(".select-month").val(mVal);
+      }
+      console.log(lVal,parseInt(lVal));
+      console.log(tVal,parseInt(tVal));
+      apr_cdr_data = [];
+      mar_cdr_data = [];
+      apr_nu_data = [];
+      mar_nu_data = [];
+      lcat = [];
+      tcat = [];
+      if(parseInt(lVal)>0 && parseInt(tVal) == 0){
+        //lcat.push(loc[lVal]);
+        for (var i=0; i<tsp.length; i++){
+          apr_cdr_data.push(data['apr_cdr'][i][lVal]);
+          mar_cdr_data.push(data['mar_cdr'][i][lVal]);
+          apr_nu_data.push(data['apr_nu'][i][lVal]);
+          mar_nu_data.push(data['mar_nu'][i][lVal]);
+          tcat.push(tsp[i]);
+          lcat.push(tsp[i]);
+        }
+      }else if(parseInt(lVal)==0 && parseInt(tVal)> 0){
+        //tcat.push(tsp[tVal]);
+        for (var i=0; i<loc.length; i++){
+          apr_cdr_data.push(data['apr_cdr'][tVal][i]);
+          mar_cdr_data.push(data['mar_cdr'][tVal][i]);
+          apr_nu_data.push(data['apr_nu'][tVal][i]);
+          mar_nu_data.push(data['mar_nu'][tVal][i]);
+          lcat.push(loc[i]);
+          tcat.push(loc[i]);
+        }
+      }else if(parseInt(lVal) > 0 && parseInt(tVal)> 0){
+          apr_cdr_data.push(data['apr_cdr'][tVal][lVal]);
+          mar_cdr_data.push(data['mar_cdr'][tVal][lVal]);
+          apr_nu_data.push(data['apr_nu'][tVal][lVal]);
+          mar_nu_data.push(data['mar_nu'][tVal][lVal]);
+          tcat.push(tsp[tVal]);
+          lcat.push(loc[lVal]);
+      }else{
+          apr_cdr_data = (data['apr_cdr'][0]);
+          mar_cdr_data = (data['mar_cdr'][0]);
+          apr_nu_data = (data['apr_nu'][0]);
+          mar_nu_data = (data['mar_nu'][0]);
+          lcat = (loc);
+          tcat = tsp;
+      }
+      console.log(apr_cdr_data,mar_cdr_data,apr_nu_data,mar_nu_data,lcat,tcat);
+      drawHChart("#container",'Call Drop Rates', lcat, '% Call Drop', apr_cdr_data, mar_cdr_data, 'normal');
+      drawHChart("#bar-example",'Network Utilization', tcat, '% Utilization', apr_nu_data, mar_nu_data, '');
+      var x,y;
+      if (parseInt(mVal) == 1){
+        x = data['apr_cdr'][0][lVal];
+        y = data['apr_nu'][0][lVal];
+      }else if (parseInt(mVal) == 2){
+        x = data['mar_cdr'][0][lVal];
+        y = data['mar_nu'][0][lVal];
+      }
+      console.log(x,y,parseInt(mVal));
+      $('.dial').val(x).trigger('change');
+      $('.dial2').val(y).trigger('change');
+    });
+    // $(".select-month").change(function(){
+    //   var x = (Math.floor((Math.random() * 10) + 1));
+    //   var y = (Math.floor((Math.random() * 100) + 70));
+    //   mVal = $(this).val();
+    //   lVal = $(".select-location").val();
+    //   $(".select-month").val(mVal);
+    //   if (parseInt(mVal) == 0){
+    //     x = data['apr_cdr'][]
+    //   }
+    //  $('.dial').val(x).trigger('change');
+    //  $('.dial2').val(y).trigger('change');
+    // });
+    function drawHChart(elemId, text, cat, yText, apr_data, mar_data, stacking){
+      $(elemId).highcharts({
+        chart: {
+            type: 'column',
+            height:250
+        },
+        title: {
+            text: text
+        },
+        xAxis: {
+            categories: cat
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: yText
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                stacking: stacking
+            }
+        },
+        series: [
+          {
+            name: 'April, 2016',
+            data: apr_data
+          }, 
+          {
+            name: 'March, 2016',
+            data: mar_data
+          }
+        ]
+      });
+    }
+    $('#container').highcharts({
+        chart: {
+            type: 'column',
+            height:250
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            categories: loc
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Call Drop Rate'
+            },
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: -30,
+            verticalAlign: 'top',
+            y: 25,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        tooltip: {
+            // headerFormat: '<b>{point.x}</b><br/>'
+            // pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                // dataLabels: {
+                //     enabled: false,
+                //     color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                //     style: {
+                //         textShadow: '0 0 3px black'
+                //     }
+                // },
+                // pointPadding: 0.2,
+                // borderWidth: 0
+            }
+        },
+        series: [
+          {
+            name: 'April, 2016',
+            data: [0.53, 1.07, 1.13, 0.75, 0.54, 0.37, 0.64, 0.51, 0.45, 0.57, 0.58, 1.23, 0.67, 0.46, 0.55, 0.63, 0.69, 0.85, 0.67, 0.61, 0.5]
+          }, 
+          {
+            name: 'March, 2016',
+            data: [0.35, 1.4, 2.68, 0.74, 0.56, 0.64, 0.92, 0.66, 0.4, 3.5, 0.69, 1.88, 1.23, 0.49, 1.06, 0.75, 0.61, 1.24, 0.56, 0.57, 0.88]
+          }
+        ]
+    });
+    $('#bar-example').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Network Utilization in Percentage'
+        },
+        // subtitle: {
+        //     text: 'Source: WorldClimate.com'
+        // },
+        xAxis: {
+            categories: tsp,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '% Utilization'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                // pointPadding: 0.2,
+                // borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'April, 2016',
+            data: [66.64, 55.03, 37.94, 83.03, 26.21, 26.89, 40.39, 43.79, 50.97, 120.2, 78.3, 18.76]
 
-     $('#container').highcharts({
-          chart: {
-              type: 'column',
-              height:250
-          },
-          title: {
-              text: ''
-          },
-          xAxis: {
-              categories: ['J&K', 'Punjab', 'Karnataka', 'Kerala', 'TamilNadu']
-          },
-          yAxis: {
-              min: 0,
-              title: {
-                  text: 'BTS Density'
-              },
-              stackLabels: {
-                  enabled: true,
-                  style: {
-                      fontWeight: 'bold',
-                      color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-                  }
-              }
-          },
-          legend: {
-              align: 'right',
-              x: -30,
-              verticalAlign: 'top',
-              y: 25,
-              floating: true,
-              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-              borderColor: '#CCC',
-              borderWidth: 1,
-              shadow: false
-          },
-          tooltip: {
-              headerFormat: '<b>{point.x}</b><br/>',
-              pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-          },
-          plotOptions: {
-              column: {
-                  stacking: 'normal',
-                  dataLabels: {
-                      enabled: true,
-                      color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                      style: {
-                          textShadow: '0 0 3px black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              name: 'Current Month',
-              data: [15, 13, 14, 17, 12]
-          }, {
-              name: 'Last Month',
-              data: [12, 12, 13, 12, 11]
-          }, {
-              name: '2015-16',
-              data: [13, 14, 14, 12, 15]
-          }]
-      });
-Morris.Bar({
-        element: 'bar-example',
-        data: [
-          { y: 'Airtel', a: 1.00, b: 9.0 },
-          { y: 'BSNL', a: 7.5,  b: 6.5 },
-          { y: 'Reliance', a: 5.0,  b: 4.0 },
-          { y: 'Vodafone', a: 7.5,  b: 6.5 },
-          { y: 'Tata Docomo', a: 5.0,  b: 4.0 }
-        ],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Current Month', 'Previous Month']
-      });
+        }, {
+            name: 'March, 2016',
+            data: [67.19, 70.74, 37.68, 85.01, 25.07, 25.07, 0.14, 44.72, 80.58, 120.02, 79.82, 34.37]
+
+        }
+        ]
+    });
+    // Morris.Bar({
+    //   element: 'bar-example',
+    //   data: [
+    //     { y: 'Airtel', a: 66.64, b: 67.19 },
+    //     { y: 'Aircel', a: 55.03,  b: 70.74 },
+    //     { y: 'BSNL', a: 37.94,  b: 37.68 },
+    //     { y: 'Idea', a: 83.03,  b: 85.01 },
+    //     { y: 'MTNL', a: 26.21, b: 25.07 },
+    //     { y: 'MTS', a: 26.89,  b: 25.07 },
+    //     { y: 'Quadrant', a: 40.39,  b: 0.14 },
+    //     { y: 'Reliance', a: 43.79,  b: 44.72},
+    //     { y: 'TTSL', a: 50.97, b: 80.58 },
+    //     { y: 'Telenor', a: 120.2,  b: 120.02 },
+    //     { y: 'Vodafone', a: 78.73,  b: 79.82 },
+    //     { y: 'Videocon', a: 18.76,  b: 34.37 }
+    //   ],
+    //   xkey: 'y',
+    //   ykeys: ['a', 'b'],
+    //   labels: ['Current Month', 'Previous Month']
+    // });
+     // google.charts.load('current', {'packages':['bar']});
+     //  google.charts.setOnLoadCallback(drawChart);
+     //  function drawChart() {
+     //    var data = google.visualization.arrayToDataTable([
+     //      ['Year', 'Sales', 'Expenses', 'Profit'],
+     //      ['2014', 1000, 400, 200],
+     //      ['2015', 1170, 460, 250],
+     //      ['2016', 660, 1120, 300],
+     //      ['2017', 1030, 540, 350]
+     //    ]);
+
+     //    var options = {
+     //      chart: {
+     //        title: 'Company Performance',
+     //        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+     //      }
+     //    };
+
+     //    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+     //    chart.draw(data, options);
+     //  }
+      
   });
   </script>
 </body>

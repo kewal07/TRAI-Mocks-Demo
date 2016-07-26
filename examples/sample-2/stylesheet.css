@@ -10,6 +10,7 @@
 #mapbox-panel .chart-stage {
     height: 675px !important;
 }
-#bar-example{
-	height: 250px;
+#columnchart_material{
+	width: 100%; 
+	height: 250px;"
 }
