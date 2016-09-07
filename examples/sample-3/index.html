@@ -80,11 +80,11 @@
         <div class="chart-wrapper">
           <div class="chart-title">
            <div class="row">
-              <div class="col-md-8">
-                 Call Drop & Network Utilization
+              <div class="col-md-4">
+                 Overall Score
             
               </div>
-              <div class="col-md-4">
+              <div class="col-md-8">
                 <select class="select-month">
                   <option>Current Month</option>
                   <option>Last Month</option>
@@ -108,18 +108,18 @@
                
               <div class="col-sm-6">
                 <div class="chart-title knob-title">
-                  Call Drop Rate
+                  India Average Score
                 </div>
                 <div class="chart-stage" id="call-drop">
-                  <input type="text" value="3.5" class="dial" readonly data-fgColor="#FF6666">
+                  <input type="text" value="72" class="dial" readonly data-fgColor="#FF6666">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="chart-title knob-title">
-                  % Network Utilization on 2G Networks
+                  Average Feedback on 2G Networks
                 </div>
                 <div class="chart-stage">
-                  <input type="text" value="77.4" class="dial2" readonly>
+                  <input type="text" value="64" class="dial2" readonly>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@
           <div class="chart-title">
           <div class="row">
             <div class="col-md-8">
-            BTS Density per square km
+            Average Rating Statewise
             </div>
             <div class="col-md-4">
                 <select class="select-month">
@@ -184,12 +184,12 @@
                   accessToken: 'pk.eyJ1Ijoia2V3YWwwNyIsImEiOiJjaXFsODZkMjAwMDBoZ3NqZnA1b2l1NXRnIn0.I7zATwJ7V0Ju8H6quwjG-g'
                 }).addTo(mymap);
                 var marker = L.marker([25.5937, 78.9629]).addTo(mymap);
-                marker.bindPopup("<b>Call Drop: </b>0.3%<br/><b>Network Utilization: </b>70.3%").openPopup();
+                marker.bindPopup("<b>Total Feedbacks: </b>2447<br/><b>Average Feedback: </b>3.7").openPopup();
                 var popup = L.popup();
                 function onMapClick(e) {
                     popup
                         .setLatLng(e.latlng)
-                        .setContent("<b>Call Drop: </b>0.3%<br/><b>Network Utilization: </b>70.3%")
+                        .setContent("<b>Total Feedbacks: </b>2440<br/><b>Average Feedback: </b>3.7")
                         .openOn(mymap);
                   }
                 mymap.on('click', onMapClick);
@@ -258,7 +258,7 @@
           yAxis: {
               min: 0,
               title: {
-                  text: 'BTS Density'
+                  text: 'Rating'
               },
               stackLabels: {
                   enabled: true,
@@ -297,23 +297,23 @@
           },
           series: [{
               name: 'Current Month',
-              data: [15, 13, 14, 17, 12]
+              data: [3.5, 3.3, 3.4, 3.7, 3.2]
           }, {
               name: 'Last Month',
-              data: [12, 12, 13, 12, 11]
+              data: [3.2, 3.2, 3.3, 3.2, 3.1]
           }, {
               name: '2015-16',
-              data: [13, 14, 14, 12, 15]
+              data: [3.3, 3.4, 3.4, 3.2, 3.5]
           }]
       });
       Morris.Bar({
         element: 'bar-example',
         data: [
-          { y: 'Airtel', a: 1.00, b: 9.0 },
-          { y: 'BSNL', a: 7.5,  b: 6.5 },
-          { y: 'Reliance', a: 5.0,  b: 4.0 },
-          { y: 'Vodafone', a: 7.5,  b: 6.5 },
-          { y: 'Tata Docomo', a: 5.0,  b: 4.0 }
+          { y: 'Airtel', a: 4.00, b: 3.7 },
+          { y: 'BSNL', a: 2.5,  b: 2.2 },
+          { y: 'Reliance', a: 3.5,  b: 4.0 },
+          { y: 'Vodafone', a: 3.5,  b: 3.3 },
+          { y: 'Tata Docomo', a: 4.0,  b: 3.8 }
         ],
         xkey: 'y',
         ykeys: ['a', 'b'],
